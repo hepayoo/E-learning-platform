@@ -80,31 +80,25 @@
     <section class="member_counter">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1024</span>
-                        <h4>All Teachers</h4>
+                        <span class="counter">{{$courses_count}}</span>
+                        <h4>Courses</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">960</span>
-                        <h4> All Students</h4>
+                        <span class="counter">{{$trainers_count}}</span>
+                        <h4> Trainers</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1020</span>
-                        <h4>Online Students</h4>
+                        <span class="counter">{{$students_count}}</span>
+                        <h4>Students</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_member_counter">
-                        <span class="counter">820</span>
-                        <h4>Ofline Students</h4>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
     <!-- member_counter counter end -->
@@ -121,99 +115,32 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ( $courses as $c )
                 <div class="col-sm-6 col-lg-4">
                     <div class="single_special_cource">
-                        <img src="{{ asset ('front/img') }}/special_cource_1.png" class="special_img" alt="">
+                        <img src="{{ asset ('uploads/courses/' .$c->img) }}" class="special_img" alt="">
                         <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Web Development</a>
-                            <h4>$130.00</h4>
-                            <a href="course-details.html"><h3>Web Development</h3></a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                            <a href="course-details.html" class="btn_4">{{$c->cat->name}}</a>
+                            <h4>${{$c->price}}</h4>
+                            <a href="course-details.html"><h3>{{$c->name}}</h3></a>
+                            <p>{{$c->small_desc}}</p>
                             <div class="author_info">
                                 <div class="author_img">
-                                    <img src="{{ asset ('front/img') }}/author/author_1.png" alt="">
+                                    <img src="{{ asset ('uploads/trainers/'.$c->trainer->img) }}" alt="">
                                     <div class="author_info_text">
                                         <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
+                                        <h5><a href="#">{{$c->trainer->name}}</a></h5>
                                     </div>
                                 </div>
-                                <div class="author_rating">
-                                    <div class="rating">
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/star.svg" alt=""></a>
-                                    </div>
-                                    <p>3.8 Ratings</p>
-                                </div>
+                           
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_special_cource">
-                        <img src="{{ asset ('front/img') }}/special_cource_2.png" class="special_img" alt="">
-                        <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">design</a>
-                            <h4>$160.00</h4>
-                            <a href="course-details.html"> <h3>Web UX/UI Design </h3></a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
-                            <div class="author_info">
-                                <div class="author_img">
-                                    <img src="{{ asset ('front/img') }}/author/author_2.png" alt="">
-                                    <div class="author_info_text">
-                                        <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
-                                    </div>
-                                </div>
-                                <div class="author_rating">
-                                    <div class="rating">
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/star.svg" alt=""></a>
-                                    </div>
-                                    <p>3.8 Ratings</p>
-                                </div>
-                            </div>
-                        </div>
+                @endforeach
 
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_special_cource">
-                        <img src="{{ asset ('front/img') }}/special_cource_3.png" class="special_img" alt="">
-                        <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Wordpress</a>
-                            <h4>$140.00</h4>
-                            <a href="course-details.html">  <h3>Wordpress Development</h3> </a> 
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
-                            <div class="author_info">
-                                <div class="author_img">
-                                    <img src="{{ asset ('front/img') }}/author/author_3.png" alt="">
-                                    <div class="author_info_text">
-                                        <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
-                                    </div>
-                                </div>
-                                <div class="author_rating">
-                                    <div class="rating">
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="{{ asset ('front/img') }}/icon/star.svg" alt=""></a>
-                                    </div>
-                                    <p>3.8 Ratings</p>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -222,7 +149,7 @@
 
 
     <!--::review_part start::-->
-    <section class="testimonial_part">
+    <section class="testimonial_part padding_top pb-5">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-xl-5">
